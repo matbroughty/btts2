@@ -59,7 +59,7 @@
 <div class="banner" ng-click="mainCtrl.toggle=!mainCtrl.toggle">
     <h1 class="banner-head">
         HPD Both teams to score.<br>
-        Click to enter Week {{mainCtrl.currentweek.week}} choices.
+        Click to enter Week {{currentweek.week}} choices.
 
     </h1>
 </div>
@@ -68,25 +68,25 @@
 <div align="center" class="toggle-form well well-lg" collapse="!mainCtrl.toggle" >
 
 
-    <form class="pure-form pure-form-stacked choices-form" ng-submit="submitChoices();mainCtrl.toggle=!mainCtrl.toggle">
+    <form name="myForm" class="pure-form pure-form-stacked choices-form" ng-submit="myForm.$valid && submitChoices();mainCtrl.toggle=!mainCtrl.toggle" novalidate>
         <fieldset>
             <div class="pure-g">
                 <div class="pure-u-1 pure-u-md-1-2">
                     <label for="users">Users</label>
-                    <select id="users" class="pure-input-1-2" ng-model="selectionqueue.selections.name">
+                    <select id="users" class="pure-input-1-2" ng-model="selection.name" required>
                         <option ng-repeat="user in mainCtrl.users.names">{{user}}</option>
                     </select>
                 </div>
 
                 <div class="pure-u-1 pure-u-md-1-2">
                     <label for="week-no">Week No</label>
-                    <input id="week-no" type="text" ng-model="selectionqueue.selections.week">
+                    <input id="week-no" type="text" ng-model="currentweek.week" >
                 </div>
 
 
                 <div class="pure-u-1 pure-u-md-1-2">
                     <label for="choice1">Choice 1</label>
-                    <select id="choice1" class="pure-input-1-2" ng-model="selectionqueue.selections.choice1" >
+                    <select id="choice1" class="pure-input-1-2" ng-model="selection.choice1" required>
                         <option>Spurs</option>
                         <option>Arsenal</option>
                         <option>West Ham</option>
@@ -97,7 +97,7 @@
 
                 <div class="pure-u-1 pure-u-md-1-2">
                     <label for="choice2">Choice 2</label>
-                    <select id="choice2" class="pure-input-1-2" ng-model="selectionqueue.selections.choice2" >
+                    <select id="choice2" class="pure-input-1-2" ng-model="selection.choice2" required>
                         <option>Spurs</option>
                         <option>Arsenal</option>
                         <option>West Ham</option>
@@ -108,7 +108,7 @@
 
                 <div class="pure-u-1 pure-u-md-1-2">
                     <label for="choice3">Choice 3</label>
-                    <select id="choice3" class="pure-input-1-2" ng-model="selectionqueue.selections.choice3" >
+                    <select id="choice3" class="pure-input-1-2" ng-model="selection.choice3" required>
                         <option>Spurs</option>
                         <option>Arsenal</option>
                         <option>West Ham</option>
@@ -119,7 +119,7 @@
 
                 <div class="pure-u-1 pure-u-md-1-2">
                     <label for="choice4">Choice 4</label>
-                    <select id="choice4" class="pure-input-1-2" ng-model="selectionqueue.selections.choice4" >
+                    <select id="choice4" class="pure-input-1-2" ng-model="selection.choice4" required>
                         <option>Spurs</option>
                         <option>Arsenal</option>
                         <option>West Ham</option>
@@ -144,7 +144,7 @@
                 <div class="pricing-table-header">
                     <h2>Week</h2>
                     <span class="pricing-table-price">
-                       {{mainCtrl.currentweek.week}} <span>choices</span>
+                       {{currentweek.week}} <span>choices</span>
                     </span>
                 </div>
 
