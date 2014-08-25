@@ -8,9 +8,11 @@
     <title>Pricing Table &ndash; Layout Examples &ndash; Pure</title>
     <!-- Vendor libs -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-animate.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
-
+    <script src="js/angular/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
 
     <!-- My main entry point-->
     <script type="text/javascript" src="js/main.js"></script>
@@ -22,6 +24,11 @@
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
 
 <!--[if lte IE 8]>
@@ -49,11 +56,85 @@
     </ul>
 </div>
 
-<div class="banner">
+<div class="banner" ng-click="mainCtrl.toggle=!mainCtrl.toggle">
     <h1 class="banner-head">
         HPD Both teams to score.<br>
-        Week {{mainCtrl.currentweek.week}}.
+        Click to enter Week {{mainCtrl.currentweek.week}} choices.
+
     </h1>
+</div>
+<div class="form-banner">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+<div align="center" class="toggle-form well well-lg" collapse="!mainCtrl.toggle" >
+
+
+    <form class="pure-form pure-form-stacked choices-form" ng-submit="submitChoices();mainCtrl.toggle=!mainCtrl.toggle">
+        <fieldset>
+            <div class="pure-g">
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <label for="users">Users</label>
+                    <select id="users" class="pure-input-1-2" ng-model="selectionqueue.selections.name">
+                        <option ng-repeat="user in mainCtrl.users.names">{{user}}</option>
+                    </select>
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <label for="week-no">Week No</label>
+                    <input id="week-no" type="text" ng-model="selectionqueue.selections.week">
+                </div>
+
+
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <label for="choice1">Choice 1</label>
+                    <select id="choice1" class="pure-input-1-2" ng-model="selectionqueue.selections.choice1" >
+                        <option>Spurs</option>
+                        <option>Arsenal</option>
+                        <option>West Ham</option>
+                        <option>Gillingham</option>
+                        <option>Celtic</option>
+                    </select>
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <label for="choice2">Choice 2</label>
+                    <select id="choice2" class="pure-input-1-2" ng-model="selectionqueue.selections.choice2" >
+                        <option>Spurs</option>
+                        <option>Arsenal</option>
+                        <option>West Ham</option>
+                        <option>Gillingham</option>
+                        <option>Celtic</option>
+                    </select>
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <label for="choice3">Choice 3</label>
+                    <select id="choice3" class="pure-input-1-2" ng-model="selectionqueue.selections.choice3" >
+                        <option>Spurs</option>
+                        <option>Arsenal</option>
+                        <option>West Ham</option>
+                        <option>Gillingham</option>
+                        <option>Celtic</option>
+                    </select>
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <label for="choice4">Choice 4</label>
+                    <select id="choice4" class="pure-input-1-2" ng-model="selectionqueue.selections.choice4" >
+                        <option>Spurs</option>
+                        <option>Arsenal</option>
+                        <option>West Ham</option>
+                        <option>Gillingham</option>
+                        <option>Celtic</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </fieldset>
+    </form>
+
+</div>
 </div>
 
 <div class="l-content">

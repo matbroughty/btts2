@@ -50,7 +50,7 @@ p {
     background-size: cover;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
 
-    height: 100px;
+    height: 50px;
     width: 100%;
     margin-bottom: 2em;
     display: table;
@@ -67,6 +67,27 @@ p {
     }
 
 
+
+.form-banner {
+    background: white 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 2em;
+    display: table;
+}
+
+
+.choices-form {
+    width: 80%;
+    vertical-align: middle;
+    border: 20px;
+}
+
+.choices {
+    margin: 0 auto;
+}
 
 .week-choices{
     width: 80%;
@@ -267,5 +288,63 @@ p {
 cite{
     font-weight: bolder;
 }
+
+
+.toggle-form.ng-enter {
+    animation: fadeIn 1s;
+}
+
+.toggle-form.ng-leave {
+    animation: fadeOut 1s;
+}
+
+
+
+.animate-enter,
+.animate-leave
+{
+    -webkit-transition: 975ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 975ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 975ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 975ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 975ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space:nowrap;
+}
+
+.animate-leave.animate-leave-active,
+.animate-enter {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+}
+
+.animate-enter.animate-enter-active,
+.animate-leave {
+    opacity: 1;
+    width: 150px;
+    height: 30px;
+}
+
+
+
+/*.toggle.ng-enter{*/
+    /*opacity: 0;*/
+/*}*/
+
+/*.toggle.ng-enter-active{*/
+    /*opacity: 1;*/
+/*}*/
+
+/*.toggle.ng-leave{*/
+    /*opacity: 1;*/
+/*}*/
+
+/*.toggle.ng-leave-active{*/
+    /*opacity: 0;*/
+/*}*/
 
 
